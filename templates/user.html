@@ -39,35 +39,28 @@
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./jobs.html">Jobs</a>
+                            <a class="nav-link" href="/jobs">Jobs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="employees.html">Employees</a>
+                            <a class="nav-link " href="applied-jobs">Applied Jobs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="candidates.html">Candidates</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cv_package.html">CV Packages</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="job_package.html">Job Packages</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
                         </li>
                         <li class="nav-item">
-                           <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;background: transparent;border:none;color: white ;padding: 10px;">Register</button> -->
                            <button style="width:auto;background: transparent;border:none;color: white ;padding: 10px 12px;"><strong>{{session.name}}</strong></button>
                            
                         </li>
                         <li class="nav-item">
-                            <!-- <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;background: transparent;border:none;color: white ;padding: 10px;">Sign In</button> -->
-                            <button style="width:auto;background: transparent;border:none;color: black;padding: 10px 12px; border: 1px solid gray; background: rgb(173, 117, 226); font-weight: 600;"> <a href="{{ url_for('logout') }}"> Logout</a> </button>
-                            
+                            <a class="nav-link " href="{{ url_for('logout') }}"  style="padding: 5px 15px; border: none; outline: none; text-decoration: none; border-radius: 20px; background-color: rgb(23, 23, 67); color: black important; ">Logout</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="post_job.html">
+                            <a class="nav-link" href="job-post">
                                 <div class="apply-btn">
                                     <button type="button" class="btn btn-primary"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>  POST NEW JOB</button>
                                 </div>

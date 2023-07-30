@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>All Jobs</title>
+    <title>Available Jobs</title>
 </head>
 <body>
-    <h1>All Jobs</h1>
-    <ul>
+    <h1>Available Jobs</h1>
+    <table>
+        <tr>
+            <th>Job ID</th>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Qualification</th>
+            <th>Skills</th>
+            <th>Job Title</th>
+        </tr>
         {% for job in jobs %}
-        <li>{{ job.username }} - {{ job.jobs }}</li>
+        <tr>
+            <td>{{ job.id }}</td>
+            <td>{{ job.userid }}</td>
+            <td>{{ job.username }}</td>
+            <td>{{ job.email }}</td>
+            <td>{{ job.qualification }}</td>
+            <td>{{ job.skills }}</td>
+            <td>{{ job.jobs }}</td>
+        </tr>
         {% endfor %}
-    </ul>
-    <a href="{{ url_for('logout') }}">Logout</a>
+    </table>
 </body>
 </html>

@@ -1,4 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, jsonify,redirect, url_for, session
+
+from chat import get_response
+
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
@@ -98,6 +101,18 @@ def all_jobs():
         return render_template('jobs.html', jobs=jobs)
     return redirect(url_for('login'))
 
+
+
+# Chatbot response data fetching
+@app.post("/predict")
+def predict():
+    text = request.get_json().get("message")
+    response = get_response(text)
+    message = {"answer": response}
+    return jsonify(message)
+
+# ending of chatbot response data fetching
+
     
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

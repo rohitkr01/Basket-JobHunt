@@ -1,0 +1,167 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": ["Hi", "Hello", "Hey", "Greetings", "Hi there", "Good day","How are you","Is anyone there?"],
+        "responses": ["Hello! How can I assist you?", "Hi there! How may I help you?", "Hey! How can I be of service?","Hey :-)", "Hello, thanks for visiting", "Hi there, what can I do for you?", "Hi there, how can I help?"]
+      },
+      {
+        "tag": "options",
+        "patterns": [
+          "How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"
+        ],
+        "responses": [
+          "I can provide you job search, Apply for job and also help for interection", "Offering support for Job , full time jobs , Half time jobs and remote jobs"
+        ]
+      },
+      {
+        "tag": "job_search",
+        "patterns": ["I'm looking for a job", "Find me a job", "Job vacancies", "Any job openings?", "Job search"],
+        "responses": ["Sure, I can help you find job opportunities. Please specify your preferred industry and location.","Absolutely! Let me know your preferred job title and location, and I'll find matching openings.","Of course! Tell me the type of job you're interested in and the location you prefer."]
+      },
+      {
+        "tag": "job_preferences",
+        "patterns": ["I'm interested in software development jobs", "Looking for marketing positions", "Any data entry jobs", "Job roles in finance"],
+        "responses": ["Great choice! Software development is a promising field. Can you tell me your preferred programming languages?", "Marketing is a dynamic industry. Any specific area within marketing you want to explore?", "Data entry can be a good start. What's your typing speed and experience?", "Finance offers excellent career opportunities. Are you interested in corporate finance or investments?"]
+      },
+      {
+        "tag": "job_preferences_programming",
+        "patterns": ["Python and Java", "Mainly C++", "Web development using HTML, CSS, and JavaScript"],
+        "responses": ["Perfect! Python and Java are in high demand. I'll look for jobs requiring these skills.","C++ is a powerful language. I'll find software development roles that need C++ expertise.", "Web development skills are valuable. I'll search for frontend or full-stack development jobs."]
+      },
+      {
+        "tag": "job_preferences_marketing",
+        "patterns": ["Social media marketing", "Product branding and promotion", "Market research"],
+        "responses": ["Social media marketing is essential nowadays. I'll find positions that match.","Product branding is an exciting field. I'll search for branding and promotion jobs.", "Market research is crucial for businesses. I'll look for relevant roles."]
+      },
+      {
+        "tag": "job_preferences_data_entry",
+        "patterns": ["Typing speed is 50 WPM", "Proficient in MS Excel and Word", "Experience in data entry for 1 year"],
+        "responses": ["Your typing speed is impressive! I'll find data entry positions that require fast typing.", "MS Excel and Word proficiency is valuable. I'll search for data entry roles involving these tools.","Having a year of data entry experience is great. I'll find suitable opportunities."]
+      },
+      {
+        "tag": "job_preferences_finance",
+        "patterns": ["Interested in corporate finance", "Equity research and analysis", "Portfolio management"],
+        "responses": ["Corporate finance offers diverse roles. I'll search for positions in that area.","Equity research requires analytical skills. I'll look for relevant jobs.","Portfolio management is a responsible role. I'll find positions that match your interest."]
+      },
+      {
+        "tag": "location_preference",
+        "patterns": ["Prefer jobs in New York", "Looking for opportunities in San Francisco Bay Area", "Open to remote jobs"],
+        "responses": ["Noted! I'll find jobs specifically in New York that align with your preferences.","San Francisco Bay Area has a thriving job market. I'll search for relevant openings.","Remote jobs offer flexibility. I'll find remote positions that match your skills."]
+      },
+      {
+        "tag": "job_search",
+        "patterns": ["I'm looking for a job", "Find me a job", "Job vacancies", "Any job openings?", "Job search"],
+        "responses": ["Sure, I can help you find job opportunities. Please specify your preferred industry and location.","Absolutely! Let me know your preferred job title and location, and I'll find matching openings.","Of course! Tell me the type of job you're interested in and the location you prefer."]
+      },
+      {
+        "tag": "job_preferences",
+        "patterns": ["I'm interested in software development jobs", "Looking for marketing positions", "Any data entry jobs", "Job roles in finance"],
+        "responses": ["Great choice! Software development is a promising field. Can you tell me your preferred programming languages?", "Marketing is a dynamic industry. Any specific area within marketing you want to explore?", "Data entry can be a good start. What's your typing speed and experience?","Finance offers excellent career opportunities. Are you interested in corporate finance or investments?"]
+      },
+      {
+        "tag": "job_preferences_programming",
+        "patterns": ["Python and Java", "Mainly C++", "Web development using HTML, CSS, and JavaScript"],
+        "responses": ["Perfect! Python and Java are in high demand. I'll look for jobs requiring these skills.","C++ is a powerful language. I'll find software development roles that need C++ expertise.","Web development skills are valuable. I'll search for frontend or full-stack development jobs."]
+      },
+      {
+        "tag": "job_preferences_marketing",
+        "patterns": ["Social media marketing", "Product branding and promotion", "Market research"],
+        "responses": ["Social media marketing is essential nowadays. I'll find positions that match.", "Product branding is an exciting field. I'll search for branding and promotion jobs.","Market research is crucial for businesses. I'll look for relevant roles."]
+      },
+      {
+        "tag": "job_preferences_data_entry",
+        "patterns": ["Typing speed is 50 WPM", "Proficient in MS Excel and Word", "Experience in data entry for 1 year"],
+        "responses": ["Your typing speed is impressive! I'll find data entry positions that require fast typing.","MS Excel and Word proficiency is valuable. I'll search for data entry roles involving these tools.","Having a year of data entry experience is great. I'll find suitable opportunities."]
+      },
+      {
+        "tag": "job_preferences_finance",
+        "patterns": ["Interested in corporate finance", "Equity research and analysis", "Portfolio management"],
+        "responses": ["Corporate finance offers diverse roles. I'll search for positions in that area.", "Equity research requires analytical skills. I'll look for relevant jobs.", "Portfolio management is a responsible role. I'll find positions that match your interest."]
+      },
+      {
+        "tag": "location_preference",
+        "patterns": ["Prefer jobs in New York", "Looking for opportunities in San Francisco Bay Area", "Open to remote jobs"],
+        "responses": ["Noted! I'll find jobs specifically in New York that align with your preferences.", "San Francisco Bay Area has a thriving job market. I'll search for relevant openings.", "Remote jobs offer flexibility. I'll find remote positions that match your skills."]
+      },
+      {
+        "tag": "qualification",
+        "patterns": ["What qualifications are required?", "Is a degree necessary?", "Educational requirements"],
+        "responses": ["The qualifications vary based on the job and employer. Some positions may require a specific degree, while others prioritize skills and experience.","While a degree can be beneficial, certain jobs value practical skills and experience more. I'll find jobs that match your background.","Educational requirements depend on the role. I'll look for positions aligned with your qualifications."]
+      },
+      {
+        "tag": "experience",
+        "patterns": ["What level of experience is needed?", "Do they accept fresh graduates?", "Experience criteria"],
+        "responses": ["Experience requirements differ for each job. Some roles may welcome fresh graduates, while others need specific experience levels.", "Certain companies are open to hiring fresh graduates, while others may prefer candidates with prior experience. I'll find opportunities that suit you.", "The level of experience expected can vary. I'll look for jobs that align with your experience."]
+      },
+      {
+        "tag": "application_process",
+        "patterns": ["How do I apply for a job?", "What's the application process?", "Is there an online application?"],
+        "responses": ["The application process may involve submitting your resume, cover letter, and other documents through their website or email.", "To apply for most jobs, you'll need to submit your application online. Some companies may also require additional assessments or interviews.","The typical application process includes submitting your application online. I'll provide specific instructions for each job you're interested in."]
+      },
+      {
+        "tag": "job_alerts",
+        "patterns": ["Can I set up job alerts?", "How can I receive job notifications?", "Job updates"],
+        "responses": ["Yes, you can set up job alerts on our website. You'll receive notifications for new job postings that match your preferences.", "Job alerts are available. You can receive email notifications for new job openings in your desired field.","We offer job alerts to keep you informed about relevant job opportunities. I'll help you set up the alerts."]
+      },
+      {
+        "tag": "internships",
+        "patterns": ["Are there any internships available?", "Internship programs", "Intern positions"],
+        "responses": ["Yes, we have internship opportunities in various fields. Please let me know your preferred industry and location for internships.", "Internships are available in multiple industries. I can find intern positions based on your preferences.", "Internship programs are a great way to gain experience. I'll find intern positions suitable for you."]
+      },
+      {
+        "tag": "salary",
+        "patterns": ["What salary range can I expect?", "Is the salary negotiable?", "Salary package"],
+        "responses": ["Salary ranges vary depending on the job and the company. I can find salary information for specific job listings.","Salary negotiations might be possible for certain roles. I'll find more details on the companies you're interested in.", "The salary package depends on the job and the employer. I'll provide salary details for the positions you're interested in."]
+      },
+      {
+        "tag": "work_environment",
+        "patterns": ["Tell me about the work environment?", "What's the company culture like?", "Workplace atmosphere"],
+        "responses": ["The work environment can vary between companies. Some emphasize collaboration and innovation, while others focus on individual contributions.","Company culture is an essential aspect to consider. I'll find information on the workplace atmosphere of specific companies.","Workplace atmosphere plays a vital role in job satisfaction. I'll provide insights on the work environment of potential employers."]
+      },
+      {
+        "tag": "interview_prep",
+        "patterns": ["How can I prepare for interviews?", "Interview tips", "Best practices for interviews"],
+        "responses": ["Preparing for interviews is crucial. I'll share some interview tips and common questions asked in your preferred field.", "Interview preparation is key to success. I'll provide you with best practices and resources to help you excel in interviews.", "I can offer interview tips and advice on how to showcase your skills and experience effectively during interviews."]
+      },
+      {
+        "tag": "benefits",
+        "patterns": ["What benefits are offered?", "Employee perks", "Company benefits"],
+        "responses": ["Employee benefits can include health insurance, retirement plans, paid time off, and more. I'll find specific benefits offered by companies you're interested in.","Companies often provide perks to attract and retain talent. I'll look for employee benefits and perks provided by potential employers.","Employee benefits play a significant role in job satisfaction. I'll provide information on benefits offered by companies."]
+      },
+      {
+        "tag": "growth_opportunities",
+        "patterns": ["Are there growth opportunities?", "Career advancement", "Room for growth"],
+        "responses": ["Growth opportunities depend on the company and the industry. I'll find companies that offer career advancement and room for growth.",  "Career advancement is crucial for professional development. I'll search for positions that provide growth opportunities.", "I'll find jobs that offer growth potential, allowing you to advance your career and achieve your long-term goals."]
+      },
+      {
+        "tag": "working_hours",
+        "patterns": ["What are the typical working hours?", "Work schedule", "Daily work hours"],
+        "responses": ["Working hours vary based on the job and company. I'll find information on typical work schedules for specific positions.","The work schedule can vary between full-time, part-time, or flexible hours. I'll provide details on the working hours of potential jobs.","I'll find the daily work hours and schedule for positions you're interested in."]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Thanks", "Thank you", "Bye", "Goodbye", "See you later", "Farewell"],
+        "responses": ["You're welcome! If you need further assistance, feel free to ask. Goodbye!","You're welcome! Have a great day!","You're welcome! If you have more questions, don't hesitate to reach out. Goodbye!"]
+      },
+      {
+        "tag": "not_well",
+        "patterns": [
+          "I'm not feeling well", "not well","Not feeling well","I think i am not feeling well"],
+        "responses": [
+          "Please elaborate your problem"
+        ]
+      },
+      {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+        "responses": ["Happy to help!", "Any time!", "My pleasure"]
+      },
+      {
+        "tag": "fallback",
+        "patterns": ["", "", "", ""],
+        "responses": ["I'm sorry, I didn't quite understand that. Could you please rephrase?","Apologies, I'm still learning. Could you provide more context?", "I'm not sure what you mean. Can you give me more details?"]
+      }  
+    ]
+  }
+  
