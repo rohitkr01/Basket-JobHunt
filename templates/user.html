@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{{ url_for('static', filename='chatbot.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+<head>
+    <title>BasketHunt Job Portal</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <!--Header-->
+    <section id="header">
+        <div class="menu">
+    
+            <nav class="navbar navbar-expand-lg navbar-light ml-4">
+                <a class="close-navbar-toggler collapsed" data-bs-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></a>
+                <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='images/b1.jpg') }}"  width="150"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="btn" onclick="myFunction()" >
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav" >
+                    <div class="container"id ="myDIV">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./jobs.html">Jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="employees.html">Employees</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="candidates.html">Candidates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cv_package.html">CV Packages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="job_package.html">Job Packages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="nav-item">
+                           <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;background: transparent;border:none;color: white ;padding: 10px;">Register</button> -->
+                           <button style="width:auto;background: transparent;border:none;color: white ;padding: 10px 12px;"><strong>{{session.name}}</strong></button>
+                           
+                        </li>
+                        <li class="nav-item">
+                            <!-- <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;background: transparent;border:none;color: white ;padding: 10px;">Sign In</button> -->
+                            <button style="width:auto;background: transparent;border:none;color: black;padding: 10px 12px; border: 1px solid gray; background: rgb(173, 117, 226); font-weight: 600;"> <a href="{{ url_for('logout') }}"> Logout</a> </button>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="post_job.html">
+                                <div class="apply-btn">
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>  POST NEW JOB</button>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </nav>
+        </div>
+  <!--Step 1:Adding HTML-->
+  
+
+  <div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+    
+      <div class="container">
+        <form class="modal-content animate" action="/action_page.php">
+            <div class="container m-auto">
+        <label><b>Name</b></label>
+        <input type="text" placeholder="Enter Full Name" name="email" required>
+        <label><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <label><b>Phone</b></label>
+        <input type="text" placeholder="Enter Phone No " name="email" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <label><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+        <input type="checkbox">  By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+        <div class="clearfix">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <button type="submit" class="signupbtn">Register</button>
+        </div>
+    </div>
+      </div>
+    </form>
+  </div>
+<div id="id02" class="modal">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
+    <div class="container">
+    <form class="modal-content animate" action="/action_page.php">
+      <div class="container">
+        <label><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <label><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+        <input type="checkbox">  By creating an account you agree to our. <a href="#">Terms & Privacy</a>
+
+        <div class="clearfix">
+          <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+          <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+  <!--close the modal by just clicking outside of the modal-->
+   <script>
+            $(document).click(function (event) {
+                var clickover = $(event.target);
+                var $navbar = $(".navbar-collapse");               
+                var _opened = $navbar.hasClass("in");
+                if (_opened === true && !clickover.hasClass("navbar-toggler")) {      
+                    $navbar.collapse('hide');
+                }
+            });
+            </script>
+</script>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+  <script>
+    var modal = document.getElementById('id01');
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+  <script>
+    var modal = document.getElementById('id02');
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+        <div class="banner text-center">
+            <h1>Jobs Around You</h1>
+            <p>Your Dream Job Is Waiting !!!</p>
+        </div>
+    </section>
+    
+	<div class="search-job text-center">
+        <input type="text" class="form-control" placeholder="keyword,Job Title, or Phrase">
+        <input type="text" class="form-control" placeholder="Company">
+        <input type="text" class="form-control" placeholder="Location">
+        <input type="button" class="btn btn-primary" value="Find Job">
+    </div>
+    <!--top recruiters--->
+    <section id="recruiters">
+        <div class="container text-center ">
+            <h3> TOP RECRUITERS</h3>
+        
+        <div >
+            <img src="{{ url_for('static', filename='images/oracle.jpg') }}">
+            <img src="{{ url_for('static', filename='images/apple.jpg') }}">
+            <img src="{{ url_for('static', filename='images/b1.jpg') }}">
+            <img src="{{ url_for('static', filename='images/capg.jpg') }}">
+            <img src="{{ url_for('static', filename='images/google.jpg') }}">
+            <img src="{{ url_for('static', filename='images/IBM.jpg') }}">
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='images/intel.jpg') }}" >
+            <img src="{{ url_for('static', filename='images/ms.jpg') }}">
+            <img src="{{ url_for('static', filename='images/cisco.jpg') }}">
+            <img src="{{ url_for('static', filename='images/nestle.jpg') }}" >
+            <img src="{{ url_for('static', filename='images/dell.jpg') }}" > 
+            <img src="{{ url_for('static', filename='images/amazon.jpg') }}">           
+        </div>
+         <div>
+            <img src="{{ url_for('static', filename='images/adobe.jpg') }}" >
+            <img src="{{ url_for('static', filename='images/bmw.jpg') }}">
+            <img src="{{ url_for('static', filename='images/Philips.jpg') }}" >
+            <img src="{{ url_for('static', filename='images/samsung.jpg') }}">
+            <img src="{{ url_for('static', filename='images/nividia.jpg') }}"> 
+            <img src="{{ url_for('static', filename='images/lg.jpg') }}">           
+        </div>
+        </div>
+    </section>
+    <!-- ------- Recent Jobs ------>
+    <section id="jobs">
+        <div class="container">
+            <h5> RECENT UPDATES </h5>
+            <div class="company-details">
+                <a href="job_detail.html"style="text-decoration: none;">
+                <div class="job-update">
+                    <h4><b>Seasoned Senior Python Developer (Fresher)</b></h4>
+                    <p>BasketHunt pvt ltd</p>
+                    <i class="fa fa-briefcase" aria-hidden="true"></i><span>0-1 yrs</span><br>
+                    <i class="fa fa-inr" aria-hidden="true"></i><span>3.50 -4.00 lacs p.a</span><br>
+                    <i class="fa fa-marker" aria-hidden="true"></i><span>Banglore</span><br>
+                    <p>Skills <i class="fa fa-angle-double-right" aria-hidden="true"></i><small>Java </small><small>Python </small><small>HTML CSS </small><small>.net </small></p>
+                </div>
+                <div class="apply-btn">
+                    <button type="button" class="btn btn-primary">Apply</button>
+                </div>
+            </a>
+            </div>
+        
+        <div class="company-details">
+        	<a href="job_detail.html"style="text-decoration: none;">
+                <div class="job-update">
+                    <h4><b> Python Developer (Fresher)</b></h4>
+                    <p>BasketHunt pvt ltd</p>
+                    <i class="fa fa-briefcase" aria-hidden="true"></i><span>0-1 yrs</span><br>
+                    <i class="fa fa-inr" aria-hidden="true"></i><span>3.50 -4.00 lacs p.a</span><br>
+                    <i class="fa fa-marker" aria-hidden="true"></i><span>Banglore</span><br>
+                    <p>Skills <i class="fa fa-angle-double-right" aria-hidden="true"></i><small>Java </small><small>Python </small><small>HTML CSS </small><small>.net </small></p>
+                </div>
+                <div class="apply-btn">
+                    <button type="button" class="btn btn-primary">Apply</button>
+                </div>
+            </a>
+            </div>
+            <div class="company-details">
+            	<a href="job_detail.html"style="text-decoration: none;">
+                <div class="job-update">
+                    <h4><b> Web Developer (Fresher)</b></h4>
+                    <p>BasketHunt pvt ltd</p>
+                    <i class="fa fa-briefcase" aria-hidden="true"></i><span>0-1 yrs</span><br>
+                    <i class="fa fa-inr" aria-hidden="true"></i><span>3.50 -4.00 lacs p.a</span><br>
+                    <i class="fa fa-marker" aria-hidden="true"></i><span>Banglore</span><br>
+                    <p>Skills <i class="fa fa-angle-double-right" aria-hidden="true"></i><small>Java </small><small>Python </small><small>HTML CSS </small><small>.net </small></p>
+                </div>
+                <div class="apply-btn">
+                    <button type="button" class="btn btn-primary">Apply</button>
+                </div>
+            </a>
+            </div>
+            <div class="company-details">
+            	<a href="job_detail.html"style="text-decoration: none;">
+                <div class="job-update">
+                    <h4><b>Software Developer (Fresher)</b></h4>
+                    <p>BasketHunt pvt ltd</p>
+                    <i class="fa fa-briefcase" aria-hidden="true"></i><span>0-1 yrs</span><br>
+                    <i class="fa fa-inr" aria-hidden="true"></i><span>3.50 -4.00 lacs p.a</span><br>
+                    <i class="fa fa-marker" aria-hidden="true"></i><span>Banglore</span><br>
+                    <p>Skills <i class="fa fa-angle-double-right" aria-hidden="true"></i><small>Java </small><small>Python </small><small>HTML CSS </small><small>.net </small></p>
+                </div>
+                <div class="apply-btn">
+                    <button type="button" class="btn btn-primary">Apply</button>
+                </div>
+            </a>
+            </div>
+            <div class="company-details">
+                <a href="job_detail.html"style="text-decoration: none;">
+                <div class="job-update">
+                    <h4><b>MArketing Intern (Fresher)</b></h4>
+                    <p>BasketHunt pvt ltd</p>
+                    <i class="fa fa-briefcase" aria-hidden="true"></i><span>0-1 yrs</span><br>
+                    <i class="fa fa-inr" aria-hidden="true"></i><span>3.50 -4.00 lacs p.a</span><br>
+                    <i class="fa fa-marker" aria-hidden="true"></i><span>Banglore</span><br>
+                    <p>Skills <i class="fa fa-angle-double-right" aria-hidden="true"></i><small>Java </small><small>Python </small><small>HTML CSS </small><small>.net </small></p>
+                </div>
+                <div class="apply-btn">
+                    <button type="button" class="btn btn-primary">Apply</button>
+                </div>
+            </a>
+            </div>
+            <div class="company-details">
+                <a href="job_detail.html"style="text-decoration: none;">
+                <div class="job-update">
+                    <h4><b>Seasoned Senior Python Developer (Fresher)</b></h4>
+                    <p>BasketHunt pvt ltd</p>
+                    <i class="fa fa-briefcase" aria-hidden="true"></i><span>0-1 yrs</span><br>
+                    <i class="fa fa-inr" aria-hidden="true"></i><span>3.50 -4.00 lacs p.a</span><br>
+                    <i class="fa fa-marker" aria-hidden="true"></i><span>Banglore</span><br>
+                    <p>Skills <i class="fa fa-angle-double-right" aria-hidden="true"></i><small>Java </small><small>Python </small><small>HTML CSS </small><small>.net </small></p>
+                </div>
+                <div class="apply-btn">
+                    <button type="button" class="btn btn-primary">Apply</button>
+                </div>
+            </a>
+            </div>
+            <ul class="page-link text-center">
+                <li class="left-arrow">&#8592;</li>
+                <li class="active">1</li>
+                <li>2</li>
+                <li class="right-arrow">&#8594;</li>
+            </ul>
+        </div>
+    </section>
+    <div class="job-portal">
+        <div class="row">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ url_for('static', filename='images/p1.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>I just got a job that I applied for via basketHunt! I used the site all the time during my job hunt.</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename='images/b7.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>I just got a job that I applied for via basketHunt! I used the site all the time during my job hunt.</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename='images/b8.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>I just got a job that I applied for via basketHunt! I used the site all the time during my job hunt.</h3>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        </div>
+    </div>
+    <!--------------Site stats-------->
+    <section id="site-stats">
+        <div class="container text-center">
+            <h3>BASKETHUNT SITE STATS</h3>
+            <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="stats-box">
+                            <i class="fa fa-user-o" aria-hidden="true"></i><span><small>100k</small></span>
+                            <p>Job Seekers</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-box">
+                            <i class="fa fa-slideshare" aria-hidden="true"></i><span><small>500 +</small></span>
+                            <p>Employees</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="stats-box">
+                            <i class="fa fa-hand-peace-o" aria-hidden="true"></i><span><small>10 k</small></span>
+                            <p>Active Jobs</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-box">
+                            <i class="fa fa-building-o" aria-hidden="true"></i><span><small>400 +</small></span>
+                            <p>Companies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-------------App Banner -------------->
+    <section id="app-banner" class="text-center">
+        <h1>Find Jobs On Mobile, Download BasketHunt App</h1>
+        <img src="{{ url_for('static', filename='images/b4.jpg') }}">
+    </section>
+
+    <!--------- footer----------->
+    <section id="footer" class="text-center">
+        <img src="{{ url_for('static', filename='images/b1.jpg') }}" class="footer-image">
+        <p>BasketHunt Private Limited</p>
+        <a href=""><img src="{{ url_for('static', filename='images/tweeter.jpg') }}"></a>
+        <a href=""><img src="{{ url_for('static', filename='images/fb.jpg') }}"></a>
+        <a href=""><img src="{{ url_for('static', filename='images/whatsapp.jpg') }}" ></a>
+        <a href=""><img src="{{ url_for('static', filename='images/in.jpg') }}" ></a>
+        <hr>
+    </section>
+
+
+    <!-- ChatBox section -->
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Hi. How can I help you? <span>╰┈ : ̗̀ ˏˋ°•*⁀</span> </p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <!-- <button class="chatbox__send--footer send__button">Send</button> -->
+                <img src="{{ url_for('static', filename='images/send.png') }}"  width="31px"  alt="" class="chatbox__send--footer send__button">
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}"  width="30px"/></button>
+        </div>
+    </div>
+
+    <script>
+        const $SCRIPT_ROOT = "{{ request.script_root }}";
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+
+</body>
+</html>
