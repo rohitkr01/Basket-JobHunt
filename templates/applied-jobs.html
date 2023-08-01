@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Available Jobs</title>
+    <title>Applied Jobs</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,7 +17,7 @@
         display: flex;
         align-items: center;
         padding: 10px 50px;
-        box-shadow: 1px 2px 4px black;
+        box-shadow: 1px 1px 1px black;
 
         position: sticky;
         top: 0;
@@ -88,6 +88,7 @@
             background-color: #fff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            animation: fadeIn 1s;
         }
 
         th, td {
@@ -120,6 +121,11 @@
         .apply-button:hover {
             background-color: #45a049;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -144,30 +150,23 @@
 
           </ul>
         </nav>
-      </header>
+    </header>
 
-    <h1>Available Jobs</h1>
+    <h1>Applied Jobs</h1>
+
     <table>
         <tr>
-            <th>ID</th>
-            <th>Job Title</th>
+            <th>Job Id</th>
+            <th>Company Name</th>
             <th>Job Role</th>
             <th>Skills</th>
-            <th>Qualifications</th>
-            <th>Vacancy</th>
-            <th>Last Date to Apply</th>
-            <th>Apply fro job</th>
         </tr>
-        {% for job in jobs %}
+        {% for job in applied_jobs %}
         <tr>
-            <td>{{ job.id }}</td>
+            <td>{{job.id}}</td>
             <td>{{ job.job_title }}</td>
             <td>{{ job.job_role }}</td>
             <td>{{ job.skills }}</td>
-            <td>{{ job.qualifications }}</td>
-            <td>{{ job.vacancy }}</td>
-            <td>{{ job.last_date }}</td>
-            <td><a href="/apply-job" class="apply-button">Apply</a></td>
         </tr>
         {% endfor %}
     </table>

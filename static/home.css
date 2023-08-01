@@ -375,7 +375,8 @@
   }
   
   .hero-content {
-    margin-block-end: 20px;
+    /* margin-block-end: 20px; */
+    display: inline-block;
   }
   
   .hero-title {
@@ -558,7 +559,9 @@
   }
   
   .team-card img {
-    width: 100%;
+    width: 70%;
+    height: 250px;
+    border: 30px;
     max-width: max-content;
     margin-inline: auto;
   }

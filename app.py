@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify,redirect, url_for, session
+from flask import Flask, render_template, request, jsonify,redirect, url_for, session , flash
 
 from chat import get_response
 
@@ -91,6 +91,18 @@ def register():
 
 
 
+@app.route('/profile')
+def profile():
+    if 'loggedin' in session:
+        email = session['email']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user WHERE email = %s', (email,))
+        user_profile = cursor.fetchone()
+        return render_template('profile.html', user_profile=user_profile)
+    else:
+        return redirect(url_for('login'))
+
+
 
 @app.route('/jobs')
 def all_jobs():
@@ -100,8 +112,66 @@ def all_jobs():
         jobs = cursor.fetchall()
         return render_template('jobs.html', jobs=jobs)
     return redirect(url_for('login'))
+    
+
+@app.route('/apply-job', methods=['GET', 'POST'])
+def apply_job():
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            email = session['email']
+            job_title = request.form['jobTitle']
+            job_role = request.form['jobRole']
+            skills = request.form['skills']
+
+            cursor = mysql.connection.cursor()
+            cursor.execute('INSERT INTO applied_job (email, job_title, job_role, skills) VALUES (%s, %s, %s, %s)',
+                           (email, job_title, job_role, skills))
+            mysql.connection.commit()
+
+            flash('Job successfully posted!', 'success')
+            return redirect(url_for('apply_job'))
+        else:
+            return render_template('apply-job.html')
+    else:
+        return redirect(url_for('login'))
 
 
+
+# Job posted by admin only
+@app.route('/job-post', methods=['GET', 'POST'])
+def job_post():
+    if 'loggedin' in session and session['email'] == 'userreply.ro@gmail.com':
+        if request.method == 'POST':
+            job_title = request.form['jobTitle']
+            job_role = request.form['jobRole']
+            skills = request.form['skills']
+            qualifications = request.form['qualifications']
+            vacancy = request.form['vacancy']
+            last_date = request.form['lastDate']
+
+            cursor = mysql.connection.cursor()
+            cursor.execute('INSERT INTO job (job_title, job_role, skills, qualifications, vacancy, last_date) VALUES (%s, %s, %s, %s, %s, %s)',
+                           (job_title, job_role, skills, qualifications, vacancy, last_date))
+            mysql.connection.commit()
+
+            flash('Job successfully posted!', 'success')
+            return redirect(url_for('job_post'))
+        else:
+            return render_template('job-post.html')
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/applied-jobs')
+def applied_jobs():
+    if 'loggedin' in session:
+        email = session['email']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM applied_job WHERE email = %s', (email,))
+        applied_jobs = cursor.fetchall()
+        return render_template('applied-jobs.html', applied_jobs=applied_jobs)
+    else:
+        flash('Please login to view applied jobs!', 'error')
+        return redirect(url_for('login'))
 
 # Chatbot response data fetching
 @app.post("/predict")
